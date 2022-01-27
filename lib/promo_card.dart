@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+
+import 'main.dart';
 
 class PromoCard extends StatefulWidget {
   const PromoCard({Key? key}) : super(key: key);
@@ -12,23 +15,99 @@ class _PromoCardState extends State<PromoCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Promocard')),
-      body: Container(
-        alignment: Alignment.center,
-        decoration: const BoxDecoration(color: Color(0xFFFFEDF5)),
-        height: MediaQuery.of(context).size.height * 0.35,
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+      body: const PromoWidget(playHome: DialogPopUp()),
+    );
+  }
+}
+
+class PromoWidget extends StatefulWidget {
+  final DialogPopUp playHome;
+
+  const PromoWidget({
+    Key? key,
+    required this.playHome,
+  }) : super(key: key);
+
+  @override
+  State<PromoWidget> createState() => _PromoWidgetState();
+}
+
+class _PromoWidgetState extends State<PromoWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(color: Color(0xFFFFEDF5)),
+      height: MediaQuery.of(context).size.height * 0.35,
+      child: Column(
+        children: <Widget>[
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Image.asset(
                 "assets/group_6075.png",
-                width: 60.0,
-                height: 80.0,
+                width: 200.0,
+                height: 170.0,
                 alignment: Alignment.center,
               ),
             ),
-          ],
-        ),
+          ),
+          const AutoSizeText.rich(
+            TextSpan(
+              children: <TextSpan>[
+                TextSpan(text: 'Online '),
+                TextSpan(
+                    text: 'Parent Teachers ',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                TextSpan(text: 'Meeting'),
+              ],
+            ),
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: 'Poppins',
+            ),
+            minFontSize: 12,
+          ),
+          const AutoSizeText(
+            'Caption related to the above subject could come here',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12.0,
+              fontFamily: 'Poppins',
+            ),
+            textAlign: TextAlign.left,
+            maxLines: 1,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                print('gesture');
+                showDialog(
+                  context: context,
+                  builder: (context) => widget.playHome,
+                );
+                //  widget.playHome;
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 36.0,
+                width: 100.0,
+                child: const Text(
+                  'EXPLORE',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.white,
+                  ),
+                ),
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.all(Radius.circular(60.0)),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
