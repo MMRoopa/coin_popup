@@ -92,7 +92,6 @@ class DialogPopUp extends StatelessWidget {
             //       Navigator.of(context).pop();
             //     }),
             Container(
-              margin: const EdgeInsets.all(2.0),
               padding: const EdgeInsets.fromLTRB(28.0, 30.0, 40.0, 10.0),
               child: Column(
                 children: [
@@ -149,7 +148,7 @@ class DialogPopUp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const <Widget>[
-                  Text(
+                  AutoSizeText(
                     'The fun way to spend your earnings is coming soon!',
                     style: TextStyle(
                       color: Colors.black,
@@ -163,7 +162,7 @@ class DialogPopUp extends StatelessWidget {
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text(
+                  AutoSizeText(
                     'Till then try earn as many as possible',
                     style: TextStyle(
                       color: Colors.black,
