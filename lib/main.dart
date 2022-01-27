@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import 'promo_card.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,6 +45,17 @@ class HomePage extends StatelessWidget {
             },
             child: const Text('Coin Pop up'),
           ),
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20),
+            ),
+            onPressed: () {
+              // const PromoCard();
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const PromoCard()));
+            },
+            child: const Text('Promo Card'),
+          ),
         ],
       ),
     );
@@ -63,11 +76,11 @@ class DialogPopUp extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(35.0)),
       ),
-      child: Expanded(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.55,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
+          // mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.only(top: 30.0),
@@ -80,6 +93,7 @@ class DialogPopUp extends StatelessWidget {
                   fontFamily: 'Poppins',
                 ),
                 textAlign: TextAlign.center,
+                maxLines: 1,
               ),
             ),
             // const SizedBox(
@@ -92,51 +106,56 @@ class DialogPopUp extends StatelessWidget {
             //       Navigator.of(context).pop();
             //     }),
             Container(
-              padding: const EdgeInsets.fromLTRB(28.0, 30.0, 40.0, 10.0),
-              child: Column(
+              margin: const EdgeInsets.fromLTRB(28.0, 20.0, 40.0, 35.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/group_70577.png",
-                        width: 32.0,
-                        height: 32.0,
-                      ),
-                      const SizedBox(
-                        width: 17.0,
-                      ),
-                      const AutoSizeText(
-                        'Flxegem',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
-                        ),
-                        textAlign: TextAlign.left,
-                      )
-                    ],
+                  Image.asset(
+                    "assets/group_70577.png",
+                    width: 32.0,
+                    height: 32.0,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 45.0),
-                    child: AutoSizeText(
-                      'This contains all of your green and blue gems',
-                      style: TextStyle(
-                        color: Color(0xFF707070),
-                        fontSize: 16.0,
-                        fontFamily: 'Poppins',
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const <Widget>[
+                          AutoSizeText(
+                            'Flxegem',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Poppins',
+                            ),
+                            textAlign: TextAlign.left,
+                            maxLines: 1,
+                          ),
+                          SizedBox(
+                            height: 2.0,
+                          ),
+                          AutoSizeText(
+                            'This contains all of your green and blue gems',
+                            style: TextStyle(
+                              color: Color(0xFF707070),
+                              fontSize: 14.0,
+                              fontFamily: 'Poppins',
+                            ),
+                            textAlign: TextAlign.left,
+                            maxLines: 2,
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.left,
-                      maxLines: 2,
                     ),
                   ),
                 ],
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(23.0, 46.0, 22.0, 48.0),
-              padding: const EdgeInsets.fromLTRB(13.0, 25.0, 13.0, 25.0),
+              margin: const EdgeInsets.fromLTRB(23.0, 0.0, 22.0, 40.0),
+              padding: const EdgeInsets.fromLTRB(13.0, 26.0, 13.0, 26.0),
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Color(0xFFFFDC00),
@@ -160,7 +179,7 @@ class DialogPopUp extends StatelessWidget {
                     maxLines: 2,
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 22.0,
                   ),
                   AutoSizeText(
                     'Till then try earn as many as possible',
