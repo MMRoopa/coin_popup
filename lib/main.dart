@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,171 +38,161 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (context) => AlertDialog(
-                  alignment: Alignment.bottomCenter,
-                  insetPadding: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
-                  contentPadding: const EdgeInsets.fromLTRB(2.0, 2.0, 2.0, 2.0),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(40.0))),
-                  title: const Text(
-                    "My Coins",
-                    style: TextStyle(
-                      color: Color(0xFF2DAD9D),
-                      fontSize: 26.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Poppins',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  actions: [
-                    IconButton(
-                        icon: const Icon(Icons.close),
-                        //splashColor: Colors.amber,
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        }),
-                  ],
-                  content: Container(
-                    padding: const EdgeInsets.fromLTRB(30, 0.0, 30, 0.0),
-                    child: Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Image.asset(
-                                    "assets/group_70577.png",
-                                    width: 50,
-                                    height: 50,
-                                  ),
-                                  const SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  const Text(
-                                    'Flxegem',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  )
-                                ],
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 60.0),
-                                child: Text(
-                                  'This contains all of your green and blue gems',
-                                  style: TextStyle(
-                                    color: Color(0xFF707070),
-                                    fontSize: 16.0,
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  textAlign: TextAlign.left,
-                                  maxLines: 2,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Image.asset(
-                                    "assets/group_70577.png",
-                                    width: 50,
-                                    height: 50,
-                                  ),
-                                  const SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  const Text(
-                                    'Flxegem',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  )
-                                ],
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 60.0),
-                                child: Text(
-                                  'This contains all of your green and blue gems',
-                                  style: TextStyle(
-                                    color: Color(0xFF707070),
-                                    fontSize: 16.0,
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  textAlign: TextAlign.left,
-                                  maxLines: 2,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 20.0, horizontal: 10.0),
-                            margin: const EdgeInsets.fromLTRB(
-                                10.0, 30.0, 10.0, 0.0),
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: Color(0xFFFFDC00),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const <Widget>[
-                                Text(
-                                  'The fun way to spend your earnings is coming soon!',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  'Till then try earn as many as possible',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                builder: (context) => const DialogPopUp(),
               );
             },
             child: const Text('Coin Pop up'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DialogPopUp extends StatelessWidget {
+  const DialogPopUp({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: const Color(0xFFFFFFFF),
+      alignment: Alignment.bottomCenter,
+      insetPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(35.0)),
+      ),
+      child: Container(
+        decoration: const BoxDecoration(
+            // boxShadow: const [
+            //   BoxShadow(
+            //     //color: Color(0xFF30301A),
+            //   )
+            // ],
+            // border: Border.all(
+            //   color: const Color(0xFFD0D0D0),
+            //   width: 0.5,
+            //    style: BorderStyle.solid,
+            // ),
+            ),
+        // padding: const EdgeInsets.fromLTRB(30, 0.0, 30, 0.0),
+        child: Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.only(top: 30.0),
+                child: AutoSizeText(
+                  "My Coins",
+                  style: TextStyle(
+                    color: Color(0xFF2DAD9D),
+                    fontSize: 26.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              // const SizedBox(
+              //   width: 40.0,
+              // ),
+              // IconButton(
+              //     icon: const Icon(Icons.close),
+              //     alignment: Alignment.topRight,
+              //     onPressed: () {
+              //       Navigator.of(context).pop();
+              //     }),
+              Container(
+                margin: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.fromLTRB(28.0, 30.0, 40.0, 10.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Image.asset(
+                          "assets/group_70577.png",
+                          width: 32.0,
+                          height: 32.0,
+                        ),
+                        const SizedBox(
+                          width: 17.0,
+                        ),
+                        const AutoSizeText(
+                          'Flxegem',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                          ),
+                          textAlign: TextAlign.left,
+                        )
+                      ],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 45.0),
+                      child: AutoSizeText(
+                        'This contains all of your green and blue gems',
+                        style: TextStyle(
+                          color: Color(0xFF707070),
+                          fontSize: 16.0,
+                          fontFamily: 'Poppins',
+                        ),
+                        textAlign: TextAlign.left,
+                        maxLines: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(23.0, 46.0, 22.0, 48.0),
+                padding: const EdgeInsets.fromLTRB(13.0, 25.0, 13.0, 25.0),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Color(0xFFFFDC00),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15.0),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const <Widget>[
+                    Text(
+                      'The fun way to spend your earnings is coming soon!',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins',
+                      ),
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'Till then try earn as many as possible',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.0,
+                        fontFamily: 'Poppins',
+                      ),
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
