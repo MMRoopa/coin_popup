@@ -40,14 +40,17 @@ class _PromoWidgetState extends State<PromoWidget> {
       decoration: const BoxDecoration(color: Color(0xFFFFEDF5)),
       height: MediaQuery.of(context).size.height * 0.35,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Center(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Image.asset(
                 "assets/group_6075.png",
-                width: 200.0,
-                height: 170.0,
+                width: MediaQuery.of(context).size.width,
+                height:
+                    ((MediaQuery.of(context).size.width * 720) / 1270) * 0.55,
                 alignment: Alignment.center,
               ),
             ),
@@ -66,6 +69,7 @@ class _PromoWidgetState extends State<PromoWidget> {
               fontSize: 16,
               fontFamily: 'Poppins',
             ),
+            maxLines: 1,
             minFontSize: 12,
           ),
           const AutoSizeText(
@@ -79,10 +83,9 @@ class _PromoWidgetState extends State<PromoWidget> {
             maxLines: 1,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
+            padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
             child: GestureDetector(
               onTap: () {
-                print('gesture');
                 showDialog(
                   context: context,
                   builder: (context) => widget.playHome,
@@ -93,12 +96,13 @@ class _PromoWidgetState extends State<PromoWidget> {
                 alignment: Alignment.center,
                 height: 36.0,
                 width: 100.0,
-                child: const Text(
+                child: const AutoSizeText(
                   'EXPLORE',
                   style: TextStyle(
                     fontSize: 14.0,
                     color: Colors.white,
                   ),
+                  maxLines: 1,
                 ),
                 decoration: const BoxDecoration(
                   color: Colors.black,
