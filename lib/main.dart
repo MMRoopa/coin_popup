@@ -25,10 +25,6 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  gamePlayDummy() {
-    print('Go to game play home screen');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
