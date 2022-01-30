@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import 'promo_card.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -28,7 +26,7 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   gamePlayDummy() {
-    const Text('Go to game play home screen');
+    print('Go to game play home screen');
   }
 
   @override
@@ -48,20 +46,6 @@ class HomePage extends StatelessWidget {
               );
             },
             child: const Text('Coin Pop up'),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              textStyle: const TextStyle(fontSize: 20),
-            ),
-            onPressed: () {
-              // const PromoCard();
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          PromoCard(playHome: gamePlayDummy())));
-            },
-            child: const Text('Promo Card'),
           ),
         ],
       ),
