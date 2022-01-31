@@ -83,15 +83,6 @@ class DialogPopUp extends StatelessWidget {
                 maxLines: 1,
               ),
             ),
-            // const SizedBox(
-            //   width: 40.0,
-            // ),
-            // IconButton(
-            //     icon: const Icon(Icons.close),
-            //     alignment: Alignment.topRight,
-            //     onPressed: () {
-            //       Navigator.of(context).pop();
-            //     }),
             Container(
               margin: const EdgeInsets.fromLTRB(28.0, 20.0, 40.0, 35.0),
               child: Row(
